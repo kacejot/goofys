@@ -175,7 +175,7 @@ func (s *GoofysTest) SetUpSuite(t *C) {
 }
 
 func (s *GoofysTest) deleteBucket(t *C) {
-	resp, err := s.s3.ListObjects(&s3.ListObjectsInput{Bucket: &s.fs.bucket})
+	resp, err := s.s3.ListObjectsV2(&s3.ListObjectsV2Input{Bucket: &s.fs.bucket})
 	t.Assert(err, IsNil)
 
 	if hasEnv("GCS") {
