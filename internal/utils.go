@@ -20,6 +20,8 @@ import (
 	"unicode"
 
 	"github.com/jacobsa/fuse"
+
+	"hash/fnv"
 )
 
 var TIME_MAX = time.Unix(1<<63-62135596801, 999999999)
@@ -161,4 +163,10 @@ func (sem semaphore) V(n int) {
 	for i := 0; i < n; i++ {
 		<-sem
 	}
+}
+
+func makeInodeID(path string) uint64 {
+	hash := fnv.New64a()
+	hash.Write([]byte(path))
+	return hash.Sum64()
 }
