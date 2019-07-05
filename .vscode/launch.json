@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Process",
+            "type": "go",
+            "request": "attach",
+            "mode": "local",
+            "processId": 0
+        },
+        {
+            "name": "Launch",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}",
+            "env": {
+                "AZURE_STORAGE_ACCOUNT": "***",
+                "AZURE_STORAGE_ACCESS_KEY": "***",
+                "AZURE_AUTH_LOCATION": "~/.azure/.auth"
+            },
+            "args": ["-f", "--storage-backend", "azure-blob-storage", "sample", "${workspaceFolder}/mount"]
+        }
+    ]
+}
