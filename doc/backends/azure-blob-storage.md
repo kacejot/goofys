@@ -1,9 +1,9 @@
 ### Goofys with Azure Blob Storage
 
-Goofys is already can work with Azure Blob Storage out of the box.
-To achive successful mount of azblob container to your fs, you need to follow next simple steps:
+Goofys can already work with Azure Blob Storage out of the box.
+To achive successful mount of azblob container to your file system, you need to follow the next simple steps:
 
-- Get account name and blob container name from your Azure Portal
+- Get account name and blob container name from your Azure Portal.
 - Get the Access key for your account from Azure Portal like described [here](https://help.bittitan.com/hc/en-us/articles/115008109327-How-do-I-get-an-access-key-for-Azure-Blob-storage- "here").
 - You can put account and key values to the config file like this:
 
@@ -35,15 +35,15 @@ az account set --subscription <name or id>
 # write auth data to our azure folder (can take several minutes)
 az ad sp create-for-rbac --sdk-auth > ~/.azure/auth
 ```
-- Add path to auth file to AZURE_AUTH_LOCATION env variable:
+- Add path to the auth file to AZURE_AUTH_LOCATION environment variable:
 
 ``` bash
 export AZURE_AUTH_LOCATION="~/.azure/auth"
 ```
-- Now we have all necessary info to start the goofys:
+- Now we have all the necessary info to start goofys:
 
 ```bash
 goofys --storage-backend azure-blob-storage <container-name> path/to/mount
 ```
 
-Now everything should work.
+Now everything's working.
