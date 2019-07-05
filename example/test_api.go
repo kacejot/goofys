@@ -1,8 +1,8 @@
 package main
 
 import (
-	goofys "github.com/kahing/goofys/api"
-	common "github.com/kahing/goofys/api/common"
+	goofys "github.com/kacejot/goofys/api"
+	common "github.com/kacejot/goofys/api/common"
 
 	"fmt"
 	"golang.org/x/net/context"
